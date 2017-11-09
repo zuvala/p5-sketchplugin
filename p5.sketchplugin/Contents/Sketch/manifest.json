@@ -3,15 +3,15 @@
   "description" : "A plugin to run some P5.js code inside Sketch",
   "author" : "Jacopo Colò",
   "homepage": "https://github.com/jacopocolo/p5-sketchplugin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "identifier" : "com.jacopocolo.sketch.p5",
   "appcast": "https://raw.githubusercontent.com/jacopocolo/p5-sketchplugin/master/appcast.xml",
   "commands" : [
     {
       "script" : "p5.js",
       "handler" : "onRun",
-      "shortcut" : "cmd+alt+ctrl+R",
-      "name" : "Edit and run",
+      "shortcut" : "",
+      "name" : "P5 Editor: Edit and run",
       "identifier" : "p5"
     }
   ],
