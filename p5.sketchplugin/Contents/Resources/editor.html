@@ -239,8 +239,11 @@ function draw() {
 		};
 
 		var pieChart =
-			`//The percentages you need to visualize
-var percentages = [30,60,10];
+			`//The values you need to visualize
+var values = [40,30,20,10];
+
+//Calculate the sum of all values
+var sum = values.reduce(add, 0);
 
 function setup() {
   //Creates an 400x400 artboard
@@ -251,7 +254,8 @@ function setup() {
 
 function draw() {
   //Custom function defined underneath
-  pieChart(300, percentages);
+  pieChart(300, values);
+  noLoop();
 }
 
 //We define a function called pieChart that asks
@@ -263,7 +267,7 @@ function pieChart(diameter, data) {
   var lastAngle = -HALF_PI;
 
   //We run a loop that runs as many times as there
-  //are elements in the percentages array
+  //are elements in the values array
   for (var i = 0; i < data.length; i++) {
 
     //Every time we run the loop we define a random rgb color
@@ -277,9 +281,14 @@ function pieChart(diameter, data) {
     //and then converts it into radians for angle
     //The variabile lastAngle is used to make sure we have arcs that
     //start where the last arc ended.
-    arc(width/2, height/2, diameter, diameter, lastAngle,  lastAngle+radians((data[i]/100)*360));
-    lastAngle += radians((data[i]/100)*360);
+    arc(width/2, height/2, diameter, diameter, lastAngle,  lastAngle+radians((data[i]/sum)*360));
+    lastAngle += radians((data[i]/sum)*360);
   }
+}
+
+//Helper function to add up all values to calculate the percentage value.
+function add(a, b) {
+    return a + b;
 }`;
 
 var barChart = `//An array with your data
